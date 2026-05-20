@@ -1,9 +1,9 @@
-# Dawnstar XP Framework
-> A scratch built XP babsed framework by Dawnstar 
+# DawnstarXP Standalone Framework
+> A scratch built XP based framework by Dawnstar 
 
 ### Dependencies
 - pNotify
 - oxmysql
 - Badger_Discord_API
 - DiscordAcePerms
-- nsrp leo/ems vehicle pack
+- Any ULC Vehicles *(configure them correctly - see docs)*
