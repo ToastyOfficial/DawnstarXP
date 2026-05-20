@@ -1,0 +1,114 @@
+<html>
+
+<head>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:700,900" rel="stylesheet">
+</head>
+
+<body style="display: flex; justify-content: center">
+
+    <script src="nui://game/ui/jquery.js"></script>
+    <script src="nui://sb-scoreboard/html/moment-with-locales.min.js"></script>
+    <script src="nui://sb-scoreboard/html/moment-timezone-with-data-2012-2022.min.js"></script>
+    <script src="nui://sb-scoreboard/html/moment-precise-range.js"></script>
+    <div id="playerlist-wrapper">
+        <div class="top">
+            <div class="discord">
+              <p>Discord:</p>
+              <span id="currentServer">UNKNOWN</span>
+            </div>
+            <div class="players">
+              <p>Players:</p>
+              <span id="count">0</span>/<span id="maxPlayers"></span>
+            </div>
+        </div>
+        <!--
+        <div class="top">
+            Restart in
+            <div class="wrap" id="restart"></div>
+        </div>
+        -->
+
+        <!--
+        <div class="top">
+            <div class="wrap" id="police">Police</div>
+            <div class="wrap" id="ems">EMS</div>
+        </div>
+        -->
+        <table>
+            <tbody id="playerlist" style="display: flex; flex-wrap: wrap; flex-direction: column; height: 500px">
+            </tbody>
+        </table>
+        <center>
+
+            <script>
+                window.addEventListener('message', function (event) {
+                    var item = event.data;
+
+                    if (item.meta && item.meta == 'open') {
+                        document.getElementById("maxPlayers").innerHTML = item.maxPlayers;
+                        document.getElementById("currentServer").innerHTML = item.currentServer;
+                        /*
+                        var target;
+                        var targetTimezone = 'America/New_York';
+                        //var targetTimezone = 'America/Los_Angeles';
+                        var now = moment().tz(targetTimezone);
+                        var target6am = moment(now.hour(6).minute(0).second(0));
+                        var target12pm = moment(now.hour(12).minute(0).second(0));
+                        var target6pm = moment(now.hour(18).minute(0).second(0));
+                        var target12am = moment(now.hour(0).minute(0).second(0));
+                        now = moment().tz(targetTimezone);
+                        //now.add(9, "hour").add(27, "minute"); // artificially adjust time for debugging (adjust as needed)
+                        //console.log(now.format());
+                        //console.log("- ");
+                        target = target12am;
+                        if (now.isAfter(target12am)) {
+                            target = moment(target6am);
+                        }
+                        if (now.isAfter(target6am)) {
+                            target = target6pm; // 12 hour raptures.
+                            //target = target12pm; // 6 hour raptures? enable this (temporary)
+                        }
+                        if (now.isAfter(target12pm)) {
+                            target = target6pm;
+                        }
+                        if (now.isAfter(target6pm)) {
+                            target = moment(target6am.add(1, "day")); // 12 hour raptures
+                            //target = moment(target12am.add(1, "day")); // 6 hour raptures? enable this (temporary)
+                        }
+                        //console.log(now.format());
+                        //console.log(target.format());
+                        //document.getElementById("restart").innerHTML = moment.preciseDiff(now, target);
+                        */
+
+                        document.getElementById("playerlist-wrapper").style.visibility = "visible";
+                        document.getElementById("playerlist").innerHTML = item.players;
+                        document.getElementById("count").innerHTML = document.getElementsByClassName("player")
+                            .length;
+                        /*
+                        if (item.cops > 0) {
+                            $("#police").css('background-color', 'green');
+                        } else {
+                            $("#police").css('background-color', 'red');
+                        }
+                        if (item.ems > 0) {
+                            $("#ems").css('background-color', 'green');
+                        } else {
+                            $("#ems").css('background-color', 'red');
+                        }
+                        */
+                        return;
+                    }
+                    if (item.meta && item.meta == 'close') {
+                        document.getElementById("playerlist-wrapper").style.visibility = "hidden";
+                        //document.getElementById("playerlist-wrapper").style.visibility = "visible";
+                        document.getElementById("playerlist").innerHTML = '';
+                        return;
+                    }
+
+                }, false);
+            </script>
+
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+
+/* variables */
+:root {
+	--width: 13vw;
+}
+
+body {
+	background-color: RGBA(0,0,0,0);
+	font-family: 'Open Sans', sans-serif;
+	padding:0;
+	margin:0;
+	font-size: 1vh;
+}
+
+/* top labels text */
+.top {
+	width: var(--width);
+	height: 2vh;
+	margin-left: auto;
+	margin-right: auto;
+
+	color: #E8E4F7;
+	margin-top:125px;
+	margin-bottom:15px;
+	padding: 5px 10px;
+
+	background: #5F70B9;
+	border-radius: 5px;
+/*
+	display: flex;
+	flex-direction: row; */
+}
+
+.top p {
+	opacity: 70%;
+	display: inline;
+}
+
+.discord {
+	/* flex: 2; */
+	float: left;
+	line-height: 2vh;
+	height: 2vh;
+}
+
+.players {
+	/* flex: 1; */
+	float: right;
+	line-height: 2vh;
+	height: 2vh;
+}
+
+#playerlist-wrapper {
+	visibility:hidden;
+}
+
+table {
+	width: 675px;
+}
+
+#playerlist {
+	color: white;
+
+	width: 100%;
+	margin-left: -2px;
+	min-height: 75vh;
+
+	display: flex;
+	flex-direction: row;
+}
+
+/* #playerlist .titles {
+	color: #d2e6fb;
+	background-color: rgba(35, 36, 41, 1);
+}
+#playerlist .titles .name {
+	border-top-left-radius: 3px;
+	border-bottom: 0px;
+}
+#playerlist .titles .id {
+	border-top-right-radius: 3px;
+	border: 0px;
+	border-right: 0;
+	border-top: 0;
+} */
+
+/* Player Container */
+
+#playerlist .player {
+	color: white;
+
+	border-radius: 5px;
+	background-color: rgba(35, 36, 41, .85);
+	padding: 5px 15px;
+	width: 300px;
+	margin: 2 auto;
+
+}
+
+#playerlist .name {
+	text-align: left;
+	font-size: 1em;
+	float: left;
+}
+
+#playerlist .id {
+	text-align: right;
+	font-size: 1em;
+	float: right;
+}
