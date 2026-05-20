@@ -56,7 +56,17 @@ end)
 RegisterCommand('report', function(source, args)
 
   local reporterName = GetPlayerName(source)
-  local reported = args[1]
+  local reported = tonumber(args[1])
+  
+  if not reported then
+    TriggerClientEvent('chat:addMessage', source, {
+      color = {255, 0, 0},
+      multiline = true,
+      args = {"Error", "Invalid player ID"}
+    })
+    return
+  end
+  
   local reportedName = GetPlayerName(reported)
   local msg = ''
 
@@ -72,4 +82,4 @@ RegisterCommand('report', function(source, args)
       TriggerClientEvent('receiveReport', v, source, reporterName, reported, reportedName, msg)
     end
   end
-end)
+end, false)
